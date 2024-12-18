@@ -357,5 +357,13 @@
         "metadata": {
             "component_id": "Hero1734438051"
         }
+    },
+    {
+        "id": "8332a3b8-f6d4-45ff-8c51-ab1d80fe777f",
+        "timestamp": "2024-12-18T11:41:11.506047Z",
+        "role": "assistant",
+        "source": "smart_contract_assistant",
+        "content": "The current deployment does not support Polygon (POL). If you'd like the smart contract to be deployed on the Polygon network, I can update the deployment details accordingly. Please confirm if that's what you need.",
+        "metadata": {}
     }
 ]
