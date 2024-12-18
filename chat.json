@@ -129,5 +129,54 @@
         "source": "smart_contract_assistant",
         "content": "The staking contract has been successfully deployed. A frontend component has been generated for users to interact with the contract, allowing them to stake tokens, withdraw, and earn rewards. If you need further assistance, just let me know!",
         "metadata": {}
+    },
+    {
+        "id": "6dc87cab-cef5-4e04-a102-a7811223953e",
+        "timestamp": "2024-12-18T11:29:25.848940Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "now, change the .sol to only accept eth to stake",
+        "metadata": {}
+    },
+    {
+        "id": "a8432ca4-dc78-40fd-885f-c58b3c2e5492",
+        "timestamp": "2024-12-18T11:29:28.425929Z",
+        "role": "tool_call",
+        "source": "smart_contract_assistant",
+        "content": null,
+        "metadata": {
+            "id": "call_FXGzgcYCpwlQUAzpBKCg66QZ",
+            "function": {
+                "arguments": "{\"contract_id\":\"staking_contract\",\"description\":\"Modify the staking contract to accept ETH for staking instead of ERC20 tokens.\",\"acknowledgement_message\":\"Alright, I'm updating the smart contract to accept ETH for staking...\"}",
+                "name": "WriteOrEditSmartContract"
+            },
+            "type": "function"
+        }
+    },
+    {
+        "id": "4965d782-f06c-4570-8225-f22aa49809f5",
+        "timestamp": "2024-12-18T11:29:28.490523Z",
+        "role": "assistant",
+        "source": "tool:WriteOrEditSmartContract",
+        "content": "Alright, I'm updating the smart contract to accept ETH for staking...",
+        "metadata": {}
+    },
+    {
+        "id": "48b9f78c-eb72-407f-83bb-f76a83e78628",
+        "timestamp": "2024-12-18T11:30:28.972118Z",
+        "role": "tool_result",
+        "source": "WriteOrEditSmartContract",
+        "content": "\nI have modified the staking contract to accept ETH for staking instead of ERC20 tokens. Here's a summary of the changes:\n\n1. Removed the `stakingToken` variable and related ERC20 staking logic.\n2. Modified the `stake` function to be `payable` and accept ETH.\n3. Updated the `withdraw` function to transfer ETH instead of ERC20 tokens.\n4. Removed the `SafeERC20` import as it's no longer needed.\n5. Added a `receive` function to allow direct ETH transfers to the contract, implementing staking logic directly.\n\nCaveats and assumptions:\n- The reward token is still an ERC20 token, as specified in the original contract.\n- The `rewardRate` is now in wei per second, so you may need to adjust it accordingly.\n- The contract address for the reward token is still a placeholder and needs to be replaced with the actual token address before deployment.\n\nInstructions for deployment and interaction:\n1. Replace the reward token address in the constructor with the actual ERC20 token address you want to use for rewards.\n2. Deploy the contract.\n3. Users can stake ETH by either calling the `stake` function or sending ETH directly to the contract address.\n4. Users can withdraw their staked ETH using the `withdraw` function.\n5. Users can claim their rewards using the `getReward` function.\n6. The contract owner can adjust the reward rate using the `setRewardRate` function.\n\nMake sure to thoroughly test the contract before deploying it to the mainnet, especially the ETH transfer mechanisms and reward calculations.\n",
+        "metadata": {
+            "tool_call_id": "call_FXGzgcYCpwlQUAzpBKCg66QZ"
+        }
+    },
+    {
+        "id": "77fa0fad-2de6-4f49-ac32-7e89a637d0cf",
+        "timestamp": "2024-12-18T11:30:30.152451Z",
+        "role": "assistant",
+        "source": "smart_contract_assistant",
+        "content": "The smart contract has been updated to accept ETH for staking. Would you like to deploy the updated contract?",
+        "metadata": {}
     }
 ]
