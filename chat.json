@@ -80,5 +80,13 @@
         "source": "smart_contract_assistant",
         "content": "The staking contract is ready. Would you like to proceed with deploying it?",
         "metadata": {}
+    },
+    {
+        "id": "46465414-f56a-44de-93a7-2ed85699cdd4",
+        "timestamp": "2024-12-18T11:28:21.547935Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "yes",
+        "metadata": {}
     }
 ]
