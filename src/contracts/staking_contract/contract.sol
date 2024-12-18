@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/utils/math/Math.sol";
 
 contract staking_contract is Ownable {
     IERC20 public rewardToken;
+    IERC20 public stakingToken;
 
     uint256 public rewardRate;
     uint256 public lastUpdateTime;
@@ -25,7 +26,8 @@ contract staking_contract is Ownable {
     event RewardRateUpdated(uint256 newRate);
 
     constructor() Ownable() {
-        rewardToken = IERC20(address(0x0987654321098765432109876543210987654321)); // Replace with actual token address
+        rewardToken = IERC20(address(0x0987654321098765432109876543210987654321)); // Replace with actual reward token address
+        stakingToken = IERC20(address(0x1234567890123456789012345678901234567890)); // Replace with actual POL token address
         rewardRate = 100; // Wei per second, adjust as needed
     }
 
@@ -56,20 +58,20 @@ contract staking_contract is Ownable {
         _;
     }
 
-    function stake() external payable updateReward(msg.sender) {
-        require(msg.value > 0, "Cannot stake 0 ETH");
-        _totalSupply += msg.value;
-        _balances[msg.sender] += msg.value;
-        emit Staked(msg.sender, msg.value);
+    function stake(uint256 amount) external updateReward(msg.sender) {
+        require(amount > 0, "Cannot stake 0 POL");
+        require(stakingToken.transferFrom(msg.sender, address(this), amount), "POL transfer failed");
+        _totalSupply += amount;
+        _balances[msg.sender] += amount;
+        emit Staked(msg.sender, amount);
     }
 
     function withdraw(uint256 amount) external updateReward(msg.sender) {
-        require(amount > 0, "Cannot withdraw 0 ETH");
+        require(amount > 0, "Cannot withdraw 0 POL");
         require(_balances[msg.sender] >= amount, "Insufficient balance");
         _totalSupply -= amount;
         _balances[msg.sender] -= amount;
-        (bool success, ) = msg.sender.call{value: amount}("");
-        require(success, "ETH transfer failed");
+        require(stakingToken.transfer(msg.sender, amount), "POL transfer failed");
         emit Withdrawn(msg.sender, amount);
     }
 
@@ -93,12 +95,5 @@ contract staking_contract is Ownable {
 
     function balanceOf(address account) external view returns (uint256) {
         return _balances[account];
-    }
-
-    receive() external payable {
-        require(msg.value > 0, "Cannot stake 0 ETH");
-        _totalSupply += msg.value;
-        _balances[msg.sender] += msg.value;
-        emit Staked(msg.sender, msg.value);
     }
 }
