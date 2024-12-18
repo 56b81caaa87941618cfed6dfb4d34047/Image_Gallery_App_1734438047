@@ -245,5 +245,15 @@
         "source": "smart_contract_assistant",
         "content": "The smart contract has already been deployed to the blockchain. If you have any further requests or need adjustments, please let me know!",
         "metadata": {}
+    },
+    {
+        "id": "68d6cb65-776c-4fb9-a2d1-643237739640",
+        "timestamp": "2024-12-18T11:35:20.476624Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "accept only POL and redeploy",
+        "metadata": {
+            "component_id": "Header1734438051"
+        }
     }
 ]
