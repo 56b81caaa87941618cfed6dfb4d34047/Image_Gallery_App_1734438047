@@ -306,5 +306,20 @@
         "metadata": {
             "component_id": "Header1734438051"
         }
+    },
+    {
+        "id": "470e968b-8a01-48e0-811d-043b5c4ff892",
+        "timestamp": "2024-12-18T11:36:03.266609Z",
+        "role": "tool_call",
+        "source": "smart_contract_assistant",
+        "content": null,
+        "metadata": {
+            "id": "call_yjkbizewOepLS2cotKYZSWaV",
+            "function": {
+                "arguments": "{\"contract_id\":\"staking_contract\",\"frontend_description\":\"A frontend component for users to interact with the updated staking contract, allowing them to stake POL, withdraw, and earn rewards.\",\"acknowledgement_message\":\"Okay, I'm deploying the updated contract...\"}",
+                "name": "DeployAndGenerateFrontend"
+            },
+            "type": "function"
+        }
     }
 ]
