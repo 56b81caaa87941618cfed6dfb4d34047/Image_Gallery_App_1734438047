@@ -137,5 +137,20 @@
         "source": "web_client",
         "content": "now, change the .sol to only accept eth to stake",
         "metadata": {}
+    },
+    {
+        "id": "a8432ca4-dc78-40fd-885f-c58b3c2e5492",
+        "timestamp": "2024-12-18T11:29:28.425929Z",
+        "role": "tool_call",
+        "source": "smart_contract_assistant",
+        "content": null,
+        "metadata": {
+            "id": "call_FXGzgcYCpwlQUAzpBKCg66QZ",
+            "function": {
+                "arguments": "{\"contract_id\":\"staking_contract\",\"description\":\"Modify the staking contract to accept ETH for staking instead of ERC20 tokens.\",\"acknowledgement_message\":\"Alright, I'm updating the smart contract to accept ETH for staking...\"}",
+                "name": "WriteOrEditSmartContract"
+            },
+            "type": "function"
+        }
     }
 ]
