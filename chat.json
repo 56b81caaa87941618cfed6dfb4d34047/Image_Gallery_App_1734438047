@@ -339,5 +339,13 @@
         "metadata": {
             "tool_call_id": "call_yjkbizewOepLS2cotKYZSWaV"
         }
+    },
+    {
+        "id": "f44d1177-91f9-4767-a336-502d388e5d8a",
+        "timestamp": "2024-12-18T11:36:34.780097Z",
+        "role": "assistant",
+        "source": "smart_contract_assistant",
+        "content": "The updated staking contract now accepting POL has been successfully deployed. The frontend component has been updated accordingly for users to interact by staking POL, withdrawing, and earning rewards. If you need further assistance, let me know!",
+        "metadata": {}
     }
 ]
