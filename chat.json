@@ -129,5 +129,13 @@
         "source": "smart_contract_assistant",
         "content": "The staking contract has been successfully deployed. A frontend component has been generated for users to interact with the contract, allowing them to stake tokens, withdraw, and earn rewards. If you need further assistance, just let me know!",
         "metadata": {}
+    },
+    {
+        "id": "6dc87cab-cef5-4e04-a102-a7811223953e",
+        "timestamp": "2024-12-18T11:29:25.848940Z",
+        "role": "user",
+        "source": "web_client",
+        "content": "now, change the .sol to only accept eth to stake",
+        "metadata": {}
     }
 ]
